@@ -56,17 +56,17 @@ namespace test.calculat
         {
             double a = 20;
             double b = 0;
-            string actmessage = "na nol` ne deli";
-            var expected = Assert.Throws<DivideByZeroException>(() => Metod_calculat.Divide(a, b));
-            Assert.Equal(actmessage, expected.Message);
+            Action act = () => Metod_calculat.Divide(a, b);
+            Assert.Throws<DivideByZeroException>(act);
+           
         }
         [Fact]
         public void Test7()
         {
             double a = -20;
-            string actmessage = "ne nizhe nulya";
-            var expected = Assert.Throws<ArgumentException>(() => Metod_calculat.Square(a));
-            Assert.Equal(actmessage, expected.Message);
+            Action act = () => Metod_calculat.Square(a);
+            Assert.Throws<ArgumentException>(act);
+           
         }
 
     }
